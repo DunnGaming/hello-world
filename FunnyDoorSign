@@ -1,0 +1,22 @@
+int_DoorProtocol ()
+{
+Knock_Sharply();
+cc = Await_Answer(&Reply);
+timeout = float .10
+if (cc =! timeout) {
+  if (Reply == Enter) {
+      return(Enter_Office);
+  } else if (Reply == Wait) {
+    cc = Await_Response(&Response);
+    if (cc == timeout)
+      return(About_Face_And_Come_Back_Later);
+    if (cc == DoorOpen | | 
+       Response == ComeIn) {
+       retuern == Enter_Office;
+    }
+  } else if (Reply == Busy) {
+    Deal_With_Rejection();
+    }
+  }
+  return(Thank_You_Come_Again);
+}
